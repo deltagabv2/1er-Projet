@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if erreur %}
+<div class="bg-cyan-100 border-emerald-200 border-solid rounded-lg flex justify-center py-2 px-3">
+    <p class="text-center font-bold text-4xl pb-3">{{erreur}}</p>
+</div>
+{% endif %}
+<div class="flex justify-center item-center">
+    <form method="POST" action="{{url_for('login')}}" class="border-emerald-200 border-solid border-2 rounded-lg bg-white py-2 px-3">
+        <div class="pb-3">
+            <label class="font-medium block pl-2 pb-2 text-3xl">Nom d'utilisateur :</label>
+            <input name="utilisateur" autocomplete="off" type="text" placeholder="Nom d'utilisateur" class="text-center font-medium flex justify-center border-balck border-emerald-300 border-solid border-1 text-3xl py-3 rounded-lg">
+        </div>
+        <div class="pb-4">
+            <label class="font-medium block pl-2 pb-2 text-3xl">Mot de passe :</label>
+            <input name="mdp" autocomplete="off" type="password" placeholder="Mot de passe" class="text-center font-medium flex justify-center border-black border-emerald-300 border-solid border-1 text-3xl py-3 rounded-lg">
+        </div>
+        <div class="pl-12">
+            <button type="submit" class="bg-indigo-400 shadow-xl border-indigo-300 border-solid border-2 text-3xl rounded-lg py-3 px-8 font-semibold">Se Connecter</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

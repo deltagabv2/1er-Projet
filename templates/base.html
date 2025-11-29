@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1er Projet</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="bg-emerald-200 flex justify-between py-6">
+        <a class="pl-6 font-semibold text-4xl" href="/">Game Online</a>
+        <nav>
+            <ul class="flex justify-end pr-6 text-4xl">
+                {% if session["user"] %}
+                <li class="px-8 font-semibold border-2 border-emerald-200 rounded-lg pb-1 hover:border-black"><a href="/publish" class="active">Nouvelle Annonce</a></li>
+                <li class="px-8 font-semibold border-2 border-emerald-200 rounded-lg pb-1 hover:border-black"><a href="/logout" class="active">Se Déconnecter</a></li>
+                {% else %}
+                <li class="px-8 font-semibold border-2 border-emerald-200 rounded-lg pb-1 hover:border-black"><a href="/login" class="active">Connection</a></li>
+                <li class="px-8 font-semibold border-2 border-emerald-200 rounded-lg pb-1 hover:border-black"><a href="/register" class="active">S'enregister</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="bg-cyan-100 pt-4 pb-6">
+        {% block content %}
+            
+        {% endblock %}
+    </main>
+
+    <footer class="text-center bg-emerald-200 pt-2">
+        <p class="text-2xl font-semibold">Deltagab 2025-2026</p>
+        <a class="text-2xl font-semibold" href="mailto:gabrielfortoul4@gmail.com"><p>gabrielfortoul4@gmail.com</p></a>
+        <a target="_blank" href="https://www.youtube.com/@Deltagab" class="text-2xl flex items-center justify-center font-semibold"><i class="fa fa-youtube-play px-2" style="font-size:48px;color:red"></i>Deltagab</a>
+    </footer>
+</body>
+</html>

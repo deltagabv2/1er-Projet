@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="bg-cyan-100 pt-4 pb-6">
+        <!-- Barre de recherche -->
+        <form action="/search" method="GET" class="flex justify-center font-bold">
+            <input type="text" name="q" placeholder="Recherche une annonce" class="">
+            <button type="submit" class="">🔎</button>
+        </form>
+        <div class="text-center">
+            <h2 class="font-bold text-5xl">Bienvenue {{session["user"]}}</h2>
+            <p class="font-semibold text-3xl pt-3">Voici Game Online le site pour chercher des amis facilement pour jouer à des jeux vidéos</p>
+        </div>
+{% if erreur %}
+    <div class="bg-cyan-100 border-emerald-200 border-solid rounded-lg flex justify-center py-2 px-3">
+        <p class="text-center font-bold text-4xl pb-3">{{erreur}}</p>
+    </div>
+{% endif %}
+        <section class="grid grid-cols-4 gap-20 p-6">
+            {% for annonce in annonce %}
+            <article class="bg-white shadow-xl border-emerald-200 border-solid border-2 rounded-lg p-3">
+                <h1 class="text-center font-semibold">{{annonce["titreAnnonce"]}}</h1>
+                <hr>
+                <p class="text-center font-normal">{{annonce["textAnnonce"]}}</p>
+                <p class="text-center font-medium">{{annonce["userAnnonce"]}}</p>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+
+{% endblock %}

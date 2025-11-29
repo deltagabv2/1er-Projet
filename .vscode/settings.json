@@ -1,0 +1,7 @@
+{
+    "vscord.status.buttons.button1.inactive.enabled": true,
+    "vscord.status.buttons.button2.active.enabled": true,
+    "vscord.status.buttons.button2.enabled": true,
+    "vscord.status.buttons.button2.git.active.enabled": true,
+    "vscord.status.buttons.button1.active.enabled": true
+}
